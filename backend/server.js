@@ -36,6 +36,8 @@ var waitingArray = [
   }
 ];
 
+//HTML Routes//
+
 app.get("/home", function(req, res) {
   res.sendFile(path.join(__dirname, "../frontend/home.html"));
 });
@@ -46,4 +48,14 @@ app.get("/reserve", function(req, res) {
 
 app.get("/tables", function(req, res) {
   res.sendFile(path.join(__dirname, "../frontend/tables.html"));
+});
+
+//API Routes//
+
+app.get("/api/tables", function(req, res) {
+  res.json(tableArray);
+});
+
+app.get("/api/reserve", function(req, res) {
+  res.json(waitingArray);
 });
