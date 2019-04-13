@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,22 +8,60 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <title>Document</title>
 </head>
+
 <body>
   <div class="jumbotron">
     <h1 class="display-4">Hot Restaurant</h1>
     <p class="lead"></p>
     <hr class="my-4">
-    <p>We only have 5 tables!  Book your seat before they are all gone!</p>
+    <p>We only have 5 tables! Book your seat before they are all gone!</p>
     <p class="lead">
       <a class="btn btn-primary btn-lg" href="tables.html" role="button">View Tables</a>
       <p class="lead">
         <a class="btn btn-primary btn-lg" href="tables.html" role="button">Make Reservation</a>
-    </p>
+      </p>
+  </div>
+
+  <div class="card">
+
+    <div class="card-header">
+      Table Reservation
+    </div>
+
+    <div class="card-body">
+      <form role=form>
+
+        <div role="form-group">
+          <label for="reserve-name">Name</label>
+          <input type="text" class="form-control" id="reserve-name">
+        </div>
+
+        <div role="form-group">
+          <label for="reserve-number">Phone Number</label>
+          <input type="text" class="form-control" id="reserve-number">
+        </div>
+
+        <div role="form-group">
+          <label for="reserve-email">Email</label>
+          <input type="text" class="form-control" id="reserve-email">
+        </div>
+
+        <div role="form-group">
+          <label for="reserve-uniqueId">Unique ID</label>
+          <input type="text" class="form-control" id="reserve-uniqueId">
+        </div>
+
+        <button type="submit" class="btn btn-primary submit">Submit</button>
+
+      </form>
+    </div>
   </div>
 
 
   <script>
-  //put js here
+    $("#add-btn").on("click", function (event) {
+      event.preventDefault();
   </script>
 </body>
+
 </html>
