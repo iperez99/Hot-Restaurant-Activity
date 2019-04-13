@@ -1,5 +1,6 @@
 //dependencies 
 var express = require("express");
+var path = require("path");
 
 var app = express();
 
@@ -34,3 +35,15 @@ var waitingArray = [
     phone: "000-000-0000"
   }
 ];
+
+app.get("/home", function(req, res) {
+  res.sendFile(path.join(__dirname, "../frontend/home.html"));
+});
+
+app.get("/reserve", function(req, res) {
+  res.sendFile(path.join(__dirname, "../frontend/reserve.html"));
+});
+
+app.get("/tables", function(req, res) {
+  res.sendFile(path.join(__dirname, "../frontend/tables.html"));
+});
