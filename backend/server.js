@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //listener 
-app.listen(PORT, function() {
+app.listen(PORT, function () {
   console.log("App listening on PORT " + PORT);
 });
 
@@ -38,25 +38,37 @@ var waitingArray = [
 
 //HTML Routes//
 
-app.get("/", function(req, res) {
+app.get("/", function (req, res) {
   res.sendFile(path.join(__dirname, "../frontend/home.html"));
 });
 
-app.get("/reserve", function(req, res) {
+app.get("/reserve", function (req, res) {
   res.sendFile(path.join(__dirname, "../frontend/reserve.html"));
 });
 
-app.get("/tables", function(req, res) {
+app.get("/tables", function (req, res) {
   res.sendFile(path.join(__dirname, "../frontend/tables.html"));
 });
 
 //API Routes//
 
-app.get("/api/tables", function(req, res) {
+app.get("/api/tables", function (req, res) {
   res.json(tableArray);
 });
 
-app.get("/api/reserve", function(req, res) {
+app.get("/api/reserve", function (req, res) {
   res.json(waitingArray);
 });
 
+app.post("/api/tables", function (req, res) {
+
+  if (tableArray.length < 5) {
+    tableArray.push(req.body);
+    res.json(true);
+  }
+  else {
+    waitingArray.push(req.body);
+    res.json(false);
+  }
+
+});
